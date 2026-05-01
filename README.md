@@ -217,6 +217,9 @@ Make a one time donation in a crypto currency of your choice. If you prefer to d
 Alternatively, sponsor me on Github using [Github Sponsors](https://github.com/sponsors/JKorf). 
 
 ## Release notes
+* Version 12.12.0 - 01 May 2026
+    * Added REST and WebSocket SpotApi.Trading.AmendOrderAsync endpoint
+
 * Version 12.11.4 - 24 Apr 2026
     * Added Transfer value to SelfTradePerventionMode enum
     * Updated websocket Spot (margin) user data subscriptions to use subscriptionId to prevent events being propagated for both margin and normal subscriptions for a single message
