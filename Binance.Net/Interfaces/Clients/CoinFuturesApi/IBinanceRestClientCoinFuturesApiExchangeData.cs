@@ -366,7 +366,7 @@ namespace Binance.Net.Interfaces.Clients.CoinFuturesApi
         /// <param name="endTime">["<c>endTime</c>"] End time to get open interest history</param>
         /// <param name="ct">Cancellation token</param>
         /// <returns>Open Interest History info</returns>
-        Task<HttpResult<BinanceFuturesCoinOpenInterestHistory[]>> GetOpenInterestHistoryAsync(string pair, ContractType contractType, PeriodInterval period, int? limit = null, DateTime? startTime = null, DateTime? endTime = null, CancellationToken ct = default);
+        Task<HttpResult<BinanceFuturesCoinOpenInterestHistory[]>> GetOpenInterestHistoryAsync(string pair, PeriodInterval period, ContractType? contractType = null, int? limit = null, DateTime? startTime = null, DateTime? endTime = null, CancellationToken ct = default);
 
         /// <summary>
         /// Gets Taker Buy/Sell Volume Ratio
