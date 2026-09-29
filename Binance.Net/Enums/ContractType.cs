@@ -57,7 +57,12 @@ namespace Binance.Net.Enums
         /// ["<c>TRADIFI_PERPETUAL</c>"] Traditional finance perp contract
         /// </summary>
         [Map("TRADIFI_PERPETUAL")]
-        PerpetualTradFi
+        PerpetualTradFi,
+        /// <summary>
+        /// ["<c>ALL</c>"] All contracts (for filtering)
+        /// </summary>
+        [Map("ALL")]
+        All
     }
 }
 
