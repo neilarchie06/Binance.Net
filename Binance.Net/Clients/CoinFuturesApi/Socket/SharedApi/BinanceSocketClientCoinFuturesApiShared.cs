@@ -42,5 +42,8 @@ namespace Binance.Net.Clients.CoinFuturesApi
                CancelFuturesOrderOptions
                );
         }
+
+        /// <inheritdoc />
+        public Task UnsubscribeAllAsync() => _api.UnsubscribeAllAsync();
     }
 }
