@@ -181,10 +181,21 @@ namespace Binance.Net.Interfaces.Clients.UsdFuturesApi
         /// <param name="priceMatch">["<c>priceMatch</c>"] Only available for Limit/Stop/TakeProfit order</param>
         /// <param name="orderId">["<c>orderId</c>"] Order id of the order to edit</param>
         /// <param name="origClientOrderId">["<c>origClientOrderId</c>"] Client order id of the order to edit</param>
+        /// <param name="reduceOnly">Reduce only</param>
         /// <param name="receiveWindow">The receive window for which this request is active. When the request takes longer than this to complete the server will reject the request</param>
         /// <param name="ct">Cancellation token</param>
         /// <returns>Details of the edited order</returns>
-        Task<HttpResult<BinanceUsdFuturesOrder>> EditOrderAsync(string symbol, OrderSide side, decimal quantity, decimal? price, PriceMatch? priceMatch = null, long? orderId = null, string? origClientOrderId = null, long? receiveWindow = null, CancellationToken ct = default);
+        Task<HttpResult<BinanceUsdFuturesOrder>> EditOrderAsync(
+            string symbol,
+            OrderSide side,
+            decimal quantity, 
+            decimal? price, 
+            PriceMatch? priceMatch = null, 
+            long? orderId = null, 
+            string? origClientOrderId = null, 
+            bool? reduceOnly = null,
+            long? receiveWindow = null,
+            CancellationToken ct = default);
 
         /// <summary>
         /// Edit multiple existing orders

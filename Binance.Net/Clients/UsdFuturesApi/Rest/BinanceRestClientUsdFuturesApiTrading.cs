@@ -311,7 +311,17 @@ namespace Binance.Net.Clients.UsdFuturesApi
         #region Edit Order
 
         /// <inheritdoc />
-        public async Task<HttpResult<BinanceUsdFuturesOrder>> EditOrderAsync(string symbol, OrderSide side, decimal quantity, decimal? price = null, PriceMatch? priceMatch = null, long? orderId = null, string? origClientOrderId = null, long? receiveWindow = null, CancellationToken ct = default)
+        public async Task<HttpResult<BinanceUsdFuturesOrder>> EditOrderAsync(
+            string symbol,
+            OrderSide side,
+            decimal quantity,
+            decimal? price = null,
+            PriceMatch? priceMatch = null, 
+            long? orderId = null, 
+            string? origClientOrderId = null,
+            bool? reduceOnly = null,
+            long? receiveWindow = null, 
+            CancellationToken ct = default)
         {
             if (!orderId.HasValue && string.IsNullOrEmpty(origClientOrderId))
                 throw new ArgumentException("Either orderId or origClientOrderId must be sent");
@@ -333,6 +343,7 @@ namespace Binance.Net.Clients.UsdFuturesApi
             parameters.Add("side", side);
             parameters.AddOptionalParameter("price", price?.ToString(CultureInfo.InvariantCulture));
             parameters.Add("priceMatch", priceMatch);
+            parameters.AddOptionalParameter("reduceOnly", reduceOnly);
             parameters.AddOptionalParameter("orderId", orderId?.ToString(CultureInfo.InvariantCulture));
             parameters.AddOptionalParameter("origClientOrderId", origClientOrderId);
             parameters.AddOptionalParameter("recvWindow", receiveWindow?.ToString(CultureInfo.InvariantCulture) ?? _baseClient.ClientOptions.ReceiveWindow.TotalMilliseconds.ToString(CultureInfo.InvariantCulture));

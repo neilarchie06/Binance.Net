@@ -90,7 +90,17 @@ namespace Binance.Net.Clients.UsdFuturesApi
         #region Edit Order
 
         /// <inheritdoc />
-        public async Task<QueryResult<BinanceResponse<BinanceUsdFuturesOrder>>> EditOrderAsync(string symbol, OrderSide side, decimal quantity, decimal? price = null, PriceMatch? priceMatch = null, long? orderId = null, string? origClientOrderId = null, long? receiveWindow = null, CancellationToken ct = default)
+        public async Task<QueryResult<BinanceResponse<BinanceUsdFuturesOrder>>> EditOrderAsync(
+            string symbol, 
+            OrderSide side,
+            decimal quantity, 
+            decimal? price = null, 
+            PriceMatch? priceMatch = null, 
+            long? orderId = null, 
+            string? origClientOrderId = null, 
+            bool? reduceOnly = null,
+            long? receiveWindow = null,
+            CancellationToken ct = default)
         {
             if (!orderId.HasValue && string.IsNullOrEmpty(origClientOrderId))
                 throw new ArgumentException("Either orderId or origClientOrderId must be sent");
@@ -115,6 +125,7 @@ namespace Binance.Net.Clients.UsdFuturesApi
             parameters.AddOptionalParameter("orderId", orderId?.ToString(CultureInfo.InvariantCulture));
             parameters.AddOptionalParameter("origClientOrderId", origClientOrderId);
             parameters.AddOptionalParameter("recvWindow", receiveWindow?.ToString(CultureInfo.InvariantCulture));
+            parameters.AddOptionalParameter("reduceOnly", reduceOnly);
 
             return await _client.QueryAsync<BinanceUsdFuturesOrder>(_client.ClientOptions.Environment.UsdFuturesSocketApiAddress!.AppendPath("ws-fapi/v1"), $"order.modify", parameters, true, true, weight: 1, ct: ct).ConfigureAwait(false);
 
