@@ -285,7 +285,7 @@ namespace Binance.Net.UnitTests
             await RunAndCheckResult(warnings, client => client.CoinFuturesApi.ExchangeData.GetPricesAsync(null, null, CancellationToken.None), false);
             await RunAndCheckResult(warnings, client => client.CoinFuturesApi.ExchangeData.GetBasisAsync("ETHUSD", Enums.ContractType.Perpetual, Enums.PeriodInterval.OneDay, null, null, null, CancellationToken.None), false);
             await RunAndCheckResult(warnings, client => client.CoinFuturesApi.ExchangeData.GetTakerBuySellVolumeRatioAsync("ETHUSD", Enums.ContractType.Perpetual, Enums.PeriodInterval.OneDay, null, null, null, CancellationToken.None), false);
-            await RunAndCheckResult(warnings, client => client.CoinFuturesApi.ExchangeData.GetOpenInterestHistoryAsync("ETHUSD", Enums.ContractType.Perpetual, Enums.PeriodInterval.OneDay, null, null, null, CancellationToken.None), false);
+            await RunAndCheckResult(warnings, client => client.CoinFuturesApi.ExchangeData.GetOpenInterestHistoryAsync("ETHUSD", Enums.PeriodInterval.OneDay, null, null, null, null, CancellationToken.None), false);
             await RunAndCheckResult(warnings, client => client.CoinFuturesApi.ExchangeData.GetOpenInterestAsync("ETHUSD_PERP", CancellationToken.None), false);
             await RunAndCheckResult(warnings, client => client.CoinFuturesApi.ExchangeData.GetBookPricesAsync(null, null, CancellationToken.None), false);
             await RunAndCheckResult(warnings, client => client.CoinFuturesApi.ExchangeData.GetIndexPriceKlinesAsync("ETHUSD", Enums.KlineInterval.OneDay, null, null, null, CancellationToken.None), false);

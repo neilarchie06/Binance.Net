@@ -422,7 +422,7 @@ namespace Binance.Net.UnitTests
             await tester.ValidateAsync(client => client.CoinFuturesApi.ExchangeData.GetTickersAsync("ETHUSDT"), "GetTickers");
             await tester.ValidateAsync(client => client.CoinFuturesApi.ExchangeData.GetBookPricesAsync("ETHUSDT"), "GetBookPrices");
             await tester.ValidateAsync(client => client.CoinFuturesApi.ExchangeData.GetOpenInterestAsync("ETHUSDT"), "GetOpenInterest");
-            await tester.ValidateAsync(client => client.CoinFuturesApi.ExchangeData.GetOpenInterestHistoryAsync("ETHUSDT", Enums.ContractType.Perpetual, Enums.PeriodInterval.ThirtyMinutes), "GetOpenInterestHistory");
+            await tester.ValidateAsync(client => client.CoinFuturesApi.ExchangeData.GetOpenInterestHistoryAsync("ETHUSDT", Enums.PeriodInterval.ThirtyMinutes), "GetOpenInterestHistory");
             await tester.ValidateAsync(client => client.CoinFuturesApi.ExchangeData.GetTakerBuySellVolumeRatioAsync("ETHUSDT", Enums.ContractType.Perpetual, Enums.PeriodInterval.ThirtyMinutes), "GetTakerBuySellVolumeRatio");
             await tester.ValidateAsync(client => client.CoinFuturesApi.ExchangeData.GetBasisAsync("ETHUSDT", Enums.ContractType.Perpetual, Enums.PeriodInterval.ThirtyMinutes), "GetBasis");
             await tester.ValidateAsync(client => client.CoinFuturesApi.ExchangeData.GetPricesAsync("ETHUSDT"), "GetPrices");
