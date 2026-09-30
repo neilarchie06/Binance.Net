@@ -285,6 +285,14 @@ Make a one time donation in a crypto currency of your choice. If you prefer to d
 Alternatively, sponsor me on Github using [Github Sponsors](https://github.com/sponsors/JKorf). 
 
 ## Release notes
+* Version 13.7.0 - 30 Sep 2026
+    * Updated CryptoExchange.Net to V13.1.0
+    * Added FxMarket to UnderlyingType Enum
+    * Added reduceOnly parameter to UsdFuturesApi EditOrderAsync endpoints
+    * Added All value to ContractType Enum
+    * Added FxMarket handling in Shared GetFuturesSymbolsAsync asset type mapping
+    * Updated restClient.CoinFuturesApi.ExchangeData.GetOpenInterestHistoryAsync contractType parameter to nullable
+
 * Version 13.6.0 - 24 Sep 2026
     * Updated CryptoExchange.Net to v13.0.0
     * Shared APIs
