@@ -59,6 +59,9 @@ namespace Binance.Net.Clients.CoinFuturesApi
                         return new SharedAssetInfo(symbol.BaseAsset, SharedAssetType.TradFi, SharedAssetSubType.Equity);
                     }
 
+                    if (symbol.UnderlyingType == UnderlyingType.FxMarket)
+                        return new SharedAssetInfo(symbol.BaseAsset, SharedAssetType.Fiat, null);
+
                     return new SharedAssetInfo(symbol.BaseAsset, SharedAssetType.TradFi, null);
                 }
 
